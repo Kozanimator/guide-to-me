@@ -4,7 +4,8 @@
 **Author: Stephan Kozak**  
 **Theme: The Reality Architect**
 
-Repository: https://github.com/Kozanimator/guide-to-me
+Repository: https://github.com/Kozanimator/guide-to-me  
+Website: https://kozanimator.github.io/guide-to-me/
 
 A humorous, fictionalized biography built with plain HTML. No CSS, JavaScript,
 framework, installation, or build step is required.
@@ -38,7 +39,7 @@ the code and are not displayed on the page.
 ## Publish on GitHub Pages
 
 The assignment requires a PUBLIC repository and a published GitHub Pages website.
-These files are ready to upload, but creating this package does not publish them.
+This repository is public and its website is published. The steps below document the publishing setup.
 
 1. Sign in to [GitHub](https://github.com/).
 2. Create a new repository named `guide-to-me`.
@@ -70,13 +71,13 @@ updating its links.
 - Click the Unreal Engine link and confirm that it reaches the external website.
 - Open the public repository link in a signed-out or private browser window.
 
-Local checks cannot establish whether a future GitHub deployment works.
-Complete these checks after publication.
+The published homepage, Classified page, both images, navigation in both directions,
+and external Unreal Engine link were checked successfully on October 29, 2026.
 
 ## Submit two links through D2L before the next class
 
-1. The public repository link, copied from the repository's address bar.
-2. The published website link, copied from **Settings > Pages**.
+1. https://github.com/Kozanimator/guide-to-me
+2. https://kozanimator.github.io/guide-to-me/
 
 ## Requirement checklist
 
@@ -95,8 +96,8 @@ Complete these checks after publication.
 | At least two images with descriptive alt text | One local PNG image on each page |
 | Working internal navigation | Both headers and additional content links |
 | Relevant external hyperlink | `index.html`: Unreal Engine |
-| Public GitHub repository | To complete after uploading |
-| Published website and live-link checks | To complete after deploying |
+| Public GitHub repository | Published: Kozanimator/guide-to-me |
+| Published website and live-link checks | Published and verified on GitHub Pages |
 
 ## GitHub documentation
 
