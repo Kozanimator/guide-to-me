@@ -1,6 +1,6 @@
 # Totally Accurate Guide to Me
 
-DG8002 Week 7 - TAGM: Extreme Makeover Edition - Stephan Kozak
+DG8002 Activity 7 - TAG-Me Extreme Makeover - Stephan Kozak
 
 A simple two-page website using HTML and one shared external CSS file.
 The Week 6 biography, lists, links, and two illustrations are retained.
@@ -24,10 +24,11 @@ Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
 | --- | --- |
 | External stylesheet | Both pages link to `style.css` inside `<head>`. |
 | Visual identity | Navy, cream, gold, and rust colours; Georgia headings and Arial body text; consistent navigation and link states. |
-| Element, class, and ID selectors | `body` and `h2`; `.info-card` and `.container`; `#main-title`. |
+| Element, class, and ID selectors | `body` and `h2`; `#main-title`; reusable `.container` and `.info-card` classes each style multiple elements. |
 | Box model | `box-sizing: border-box`; margins, padding, borders, rounded corners, width, and max-width. |
 | Flexbox | `.header-layout`, `nav`, `.intro-layout`, `.content-row`, and `.footer-layout`. |
 | Responsive design | Flexible container/image widths and `@media (max-width: 700px)` stack content for small screens. |
+| GitHub deployment | Updated in the existing `Kozanimator/guide-to-me` repository and published at the existing GitHub Pages URL. |
 
 ## Editing the website
 
@@ -39,4 +40,11 @@ Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
 
 Check both pages at viewport widths of 1200px, 768px, and 375px. Test both navigation links, image loading, keyboard focus, and the external Unreal Engine link.
 
-The current scope follows the six requirements on the final slide of Lesson 7.
+## Submission
+
+Submit these two links through D2L before the next class:
+
+- Public repository: https://github.com/Kozanimator/guide-to-me
+- Published website: https://kozanimator.github.io/guide-to-me/
+
+This version covers all seven requirements in the Activity 7 guide. Both pages were checked at 1200px, 768px, and 375px, with working images and navigation and no horizontal content overflow.
