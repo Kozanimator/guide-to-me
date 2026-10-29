@@ -4,51 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stephan Kozak - The Reality Architect</title>
+    <!-- Both pages share this external stylesheet. -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Stephan Kozak: The Reality Architect</h1>
-        <p>A totally accurate guide to me.</p>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="Classified.html">Classified</a>
-        </nav>
+        <div class="container header-layout">
+            <div>
+                <h1 id="main-title"><span class="name">Stephan Kozak:</span> The Reality Architect</h1>
+                <p class="subtitle">A totally accurate guide to me.</p>
+            </div>
+            <nav aria-label="Main navigation">
+                <a class="current-page" href="index.html" aria-current="page">Home</a>
+                <a href="Classified.html">Classified</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>About Me</h2>
+    <main class="container">
+        <section class="feature-section">
             <!-- This div groups my introduction and image. -->
-            <div>
-                <p>I am a creative director, visual effects supervisor, and digital media master's student.
-                I bring imaginary things to life. I try to bring what's in your mind alive.</p>
-                <img src="images/space-monkey.jpg" width="500"
+            <div class="intro-layout">
+                <div class="intro-copy">
+                    <h2>About Me</h2>
+                    <p>I am a creative director, visual effects supervisor, and digital media master's student.
+                    I bring imaginary things to life. I try to bring what's in your mind alive.</p>
+                </div>
+                <img class="feature-image" src="images/space-monkey.jpg" width="1000" height="563"
                      alt="A hand-drawn monkey launching into space and transforming into a human astronaut.">
             </div>
         </section>
 
-        <section>
-            <h2>My Origin Story</h2>
-            <p>I started with drawing and animation, then moved into visual effects
-            and academic research. One day, I asked, "What if a painting could move?"
-            Now I keep inventing projects that refuse to stay inside their frames.</p>
-        </section>
+        <!-- Flexbox places these sections beside each other when there is room. -->
+        <div class="content-row">
+            <section class="info-card">
+                <h2>My Origin Story</h2>
+                <p>I started with drawing and animation, then moved into visual effects
+                and academic research. One day, I asked, "What if a painting could move?"
+                Now I keep inventing projects that refuse to stay inside their frames.</p>
+            </section>
 
-        <section>
-            <h2>My Skills</h2>
-            <ul>
-                <li>Animation: making characters and objects move.</li>
-                <li>Visual effects: making impossible things look real in film and broadcast.</li>
-                <li>Problem solving: finding another way when technology refuses to cooperate.</li>
-            </ul>
-            <p>I also enjoy building worlds with
-            <a href="https://www.unrealengine.com/">Unreal Engine</a>.</p>
-        </section>
+            <section class="info-card">
+                <h2>My Skills</h2>
+                <ul>
+                    <li>Animation: making characters and objects move.</li>
+                    <li>Visual effects: making impossible things look real in film and broadcast.</li>
+                    <li>Problem solving: finding another way when technology refuses to cooperate.</li>
+                </ul>
+                <p>I also enjoy building worlds with
+                <a href="https://www.unrealengine.com/">Unreal Engine</a>.</p>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>Stephan Kozak - DG8002 Activity 6</p>
-        <p>A slightly exaggerated biography.</p>
+        <div class="container footer-layout">
+            <p>Stephan Kozak - DG8002 Week 7</p>
+            <p>A slightly exaggerated biography.</p>
+        </div>
     </footer>
 </body>
 </html>

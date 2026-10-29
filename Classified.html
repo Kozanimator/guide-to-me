@@ -4,57 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classified - Stephan Kozak</title>
+    <!-- The same stylesheet is linked on the homepage. -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Classified Information</h1>
-        <p>The things my official biography leaves out.</p>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="Classified.html">Classified</a>
-        </nav>
+        <div class="container header-layout">
+            <div>
+                <p class="name">The Reality Architect</p>
+                <h1 id="main-title">Classified Information</h1>
+                <p class="subtitle">The things my official biography leaves out.</p>
+            </div>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a class="current-page" href="Classified.html" aria-current="page">Classified</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Three Fun Facts</h2>
-            <img src="images/foreverstar-comic.jpg" width="500"
-                 alt="A superhero flies out of a comic book into a solar system beneath the ForeverStar logo.">
-            <ul>
-                <li>I think paintings should be able to move.</li>
-                <li>One small idea usually turns into three new projects.</li>
-                <li>I am creating a universe called ForeverStar. Apparently, one planet was not enough.</li>
-            </ul>
+    <main class="container">
+        <section class="feature-section">
+            <div class="intro-layout">
+                <div class="intro-copy">
+                    <h2>Three Fun Facts</h2>
+                    <ul>
+                        <li>I think paintings should be able to move.</li>
+                        <li>One small idea usually turns into three new projects.</li>
+                        <li>I am creating a universe called ForeverStar. Apparently, one planet was not enough.</li>
+                    </ul>
+                </div>
+                <img class="feature-image" src="images/foreverstar-comic.jpg" width="1000" height="563"
+                     alt="A superhero flies out of a comic book into a solar system beneath the ForeverStar logo.">
+            </div>
         </section>
 
-        <section>
-            <h2>Survival Guide for Working with Me</h2>
-            <!-- An ordered list shows the steps in order. -->
-            <ol>
-                <li>Show me a sketch or reference image.</li>
-                <li>Agree on what we need to finish.</li>
-                <li>Save a backup before experimenting.</li>
-                <li>Give me good feedback.</li>
-            </ol>
-        </section>
+        <div class="content-row">
+            <section class="info-card">
+                <h2>Survival Guide for Working with Me</h2>
+                <!-- An ordered list shows the steps in order. -->
+                <ol>
+                    <li>Show me a sketch or reference image.</li>
+                    <li>Agree on what we need to finish.</li>
+                    <li>Save a backup before experimenting.</li>
+                    <li>Give me good feedback.</li>
+                </ol>
+            </section>
 
-        <section>
-            <h2>My Weaknesses</h2>
-            <p>I sometimes add too many ideas to one project.
-            I also find it difficult to stop at "one more version."</p>
-        </section>
+            <section class="info-card">
+                <h2>My Weaknesses</h2>
+                <p>I sometimes add too many ideas to one project.
+                I also find it difficult to stop at "one more version."</p>
+            </section>
 
-        <section>
-            <h2>My Future Ambitions</h2>
-            <p>I want to build a company that brings paintings, books, and comics
-            to life. I also want to develop ForeverStar into an immersive experience
-            people can enjoy together.</p>
-        </section>
+            <section class="info-card">
+                <h2>My Future Ambitions</h2>
+                <p>I want to build a company that brings paintings, books, and comics
+                to life. I also want to develop ForeverStar into an immersive experience
+                people can enjoy together.</p>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>Stephan Kozak - DG8002 Activity 6</p>
-        <p>Classification: not very secret.</p>
+        <div class="container footer-layout">
+            <p>Stephan Kozak - DG8002 Week 7</p>
+            <p>Classification: not very secret.</p>
+        </div>
     </footer>
 </body>
 </html>

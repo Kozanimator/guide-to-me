@@ -1,0 +1,232 @@
+/* DG8002 Week 7 - TAGM: Extreme Makeover Edition
+   Shared by index.html and Classified.html.
+   Colours: navy #172d45, cream #f8f3e7, gold #f1cb80. */
+
+/* 1. ELEMENT SELECTORS: set the overall colours and typography.
+   border-box includes padding and borders in an element's width. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f8f3e7;
+    color: #243446;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+header {
+    padding: 36px 0;
+    background-color: #172d45;
+    color: #fffaf0;
+    border-bottom: 6px solid #f1cb80;
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
+    line-height: 1.15;
+}
+
+h2 {
+    margin: 0 0 18px;
+    color: #172d45;
+    font-size: 28px;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+ul, ol {
+    margin: 0 0 16px;
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* 2. ID SELECTOR: each page has one main-title ID. */
+#main-title {
+    margin: 0;
+    font-size: 44px;
+}
+
+/* 3. CLASS SELECTORS: reusable styles across both pages.
+   A flexible width and auto margins keep the content centred. */
+.container {
+    width: 92%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.name {
+    display: block;
+    margin: 0 0 12px;
+    color: #f1cb80;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin: 14px 0 0;
+    color: #e6e5df;
+}
+
+/* 4. FLEXBOX: the header and navigation share a row on wide screens. */
+.header-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Hyperlink states: unvisited, visited, hover, focus, and active. */
+a:link {
+    color: #245780;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #68457e;
+}
+
+a:hover {
+    color: #943f27;
+}
+
+a:focus-visible {
+    outline: 3px solid #a94b2e;
+    outline-offset: 4px;
+}
+
+a:active {
+    color: #172d45;
+}
+
+nav a:link, nav a:visited {
+    padding: 10px 18px;
+    color: #fffaf0;
+    text-decoration: none;
+    border: 1px solid #9aabb8;
+    border-radius: 6px;
+}
+
+nav a.current-page, nav a:hover, nav a:active {
+    background-color: #f1cb80;
+    color: #172d45;
+    border-color: #f1cb80;
+}
+
+nav a:focus-visible {
+    outline-color: #f1cb80;
+}
+
+/* 5. BOX MODEL: margin separates sections; padding gives content room.
+   Borders and rounded corners define each card. */
+.feature-section {
+    margin: 36px 0 28px;
+    padding: 28px;
+    background-color: #fffdf7;
+    border: 1px solid #cfc5b1;
+    border-radius: 10px;
+}
+
+.intro-layout {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.intro-copy {
+    flex: 1;
+}
+
+.feature-image {
+    display: block;
+    width: 56%;
+    height: auto;
+    border: 1px solid #cfc5b1;
+    border-radius: 6px;
+}
+
+.content-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.info-card {
+    flex: 1;
+    min-width: 240px;
+    padding: 26px;
+    background-color: #fffdf7;
+    border: 1px solid #cfc5b1;
+    border-top: 4px solid #ad5035;
+    border-radius: 8px;
+}
+
+footer {
+    padding: 24px 0;
+    color: #495968;
+    font-size: 14px;
+    border-top: 1px solid #cfc5b1;
+}
+
+.footer-layout {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* 6. RESPONSIVE DESIGN: stack the layout on phones and small tablets. */
+@media (max-width: 700px) {
+    header {
+        padding: 28px 0;
+    }
+
+    #main-title {
+        font-size: 34px;
+    }
+
+    .header-layout, .intro-layout, .content-row, .footer-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .feature-section {
+        margin-top: 24px;
+        padding: 20px;
+    }
+
+    .feature-image {
+        width: 100%;
+    }
+
+    .info-card {
+        min-width: 0;
+        padding: 22px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
