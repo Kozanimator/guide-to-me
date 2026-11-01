@@ -1,9 +1,8 @@
-/* DG8002 Week 7 - TAGM: Extreme Makeover Edition
-   Shared by index.html and Classified.html.
+/* TAGM: Extreme Makeover Edition
    Colours: navy #172d45, cream #f8f3e7, gold #f1cb80. */
 
-/* 1. ELEMENT SELECTORS: set the overall colours and typography.
-   border-box includes padding and borders in an element's width. */
+/* 1. ELEMENTS: set the overall colours and typography.
+   border-box includes padding and borders in the element's width. */
 * {
     box-sizing: border-box;
 }
@@ -54,7 +53,7 @@ li {
     font-size: 44px;
 }
 
-/* 3. CLASS SELECTORS: reusable styles across both pages.
+/* 3. CLASS: reusable styles across both pages.
    A flexible width and auto margins keep the content centred. */
 .container {
     width: 92%;
@@ -93,7 +92,7 @@ nav {
     gap: 10px;
 }
 
-/* Hyperlink states: unvisited, visited, hover, focus, and active. */
+/* Hyperlink: unvisited, visited, hover, focus, and active. */
 a:link {
     color: #245780;
     font-weight: bold;
@@ -135,7 +134,7 @@ nav a:focus-visible {
 }
 
 /* 5. BOX MODEL: margin separates sections; padding gives content room.
-   Borders and rounded corners define each card. */
+   Borders and rounded corners. */
 .feature-section {
     margin: 36px 0 28px;
     padding: 28px;
@@ -197,7 +196,7 @@ footer p {
     margin: 0;
 }
 
-/* 6. RESPONSIVE DESIGN: stack the layout on phones and small tablets. */
+/* 6. RESPONSIVE DESIGN: layout on phones and tablets. */
 @media (max-width: 700px) {
     header {
         padding: 28px 0;
