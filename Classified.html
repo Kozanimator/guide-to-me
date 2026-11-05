@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classified - Stephan Kozak</title>
+    <title>Classified - TAGM: Interactive Edition</title>
     <link rel="icon" href="images/reality-architect.png">
     <!-- The same stylesheet is linked on the homepage. -->
     <link rel="stylesheet" href="style.css">
@@ -28,12 +28,24 @@
         <section class="feature-section">
             <div class="intro-layout">
                 <div class="intro-copy">
-                    <h2>Three Fun Facts</h2>
-                    <ul>
-                        <li>I think paintings should be able to move.</li>
-                        <li>One small idea usually turns into three new projects.</li>
-                        <li>I am creating a universe called ForeverStar. Apparently, one planet was not enough.</li>
-                    </ul>
+                    <h2>Visitor clearance</h2>
+                    <form id="greeting-form" novalidate>
+                        <label for="visitor-name">Your first name</label>
+                        <div class="message-row">
+                            <input id="visitor-name" type="text" required maxlength="80"
+                                   autocomplete="given-name" aria-describedby="greeting-status">
+                            <button type="submit">Greet me</button>
+                        </div>
+                        <label class="alert-option">
+                            <input id="extra-alerts" type="checkbox" checked>
+                            Make me click OK three times
+                        </label>
+                        <p id="greeting-status" role="status"></p>
+                    </form>
+                    <div class="fact-reveal">
+                        <button id="fact-btn" type="button">Reveal a random fact</button>
+                        <p id="fact" aria-live="polite">I use Unreal Engine to build worlds.</p>
+                    </div>
                 </div>
                 <img class="feature-image" src="images/foreverstar-comic.jpg" width="1000" height="563"
                      alt="A superhero flies out of a comic book into a solar system beneath the ForeverStar logo.">
@@ -41,6 +53,15 @@
         </section>
 
         <div class="content-row">
+            <section class="info-card">
+                <h2>Three Fun Facts</h2>
+                <ul>
+                    <li>I think paintings should be able to move.</li>
+                    <li>One small idea usually turns into three new projects.</li>
+                    <li>I am creating a universe called ForeverStar. Apparently, one planet was not enough.</li>
+                </ul>
+            </section>
+
             <section class="info-card">
                 <h2>Survival Guide for Working with Me</h2>
                 <!-- An ordered list shows the steps in order. -->
@@ -51,7 +72,9 @@
                     <li>Give me some good feedback.</li>
                 </ol>
             </section>
+        </div>
 
+        <div class="content-row">
             <section class="info-card">
                 <h2>My Weaknesses</h2>
                 <p>I sometimes add too many ideas to one project.
@@ -69,7 +92,7 @@
 
     <footer>
         <div class="container footer-layout">
-            <p>Stephan Kozak - DG8002 JavaScript Lab</p>
+            <p>Stephan Kozak - TAGM: Interactive Edition</p>
             <p>Classification: not very secret.</p>
         </div>
     </footer>

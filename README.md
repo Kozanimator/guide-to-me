@@ -14,7 +14,7 @@ Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
 - `index.html`: introduction, origin story, skills, and Unreal Engine link.
 - `Classified.html`: fun facts, survival guide, weaknesses, and ambitions.
 - `style.css`: shared appearance and layout for both pages.
-- `script.js`: switches the theme on both pages. On Home, it previews a visitor's story idea in an alert and reveals a random fact about me.
+- `script.js`: switches the theme and reveals random facts on both pages. Classified also greets visitors by name, with optional extra alerts. Home lets visitors preview a story idea.
 - `images/space-monkey.jpg`: homepage illustration.
 - `images/foreverstar-comic.jpg`: Classified illustration.
 

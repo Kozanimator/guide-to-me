@@ -8,6 +8,9 @@
 }
 
 body {
+    color-scheme: light;
+    --field-error: #a33428;
+    --field-success: #256641;
     margin: 0;
     background-color: #f8f3e7;
     color: #243446;
@@ -197,7 +200,7 @@ footer p {
 }
 
 /* JavaScript lab controls share the site's navy and gold palette. */
-button, input {
+button, input[type="text"] {
     min-height: 44px;
     padding: 8px 14px;
     font: inherit;
@@ -245,7 +248,7 @@ nav button:focus-visible {
     font-family: Georgia, serif;
 }
 
-label[for="message"] {
+label[for="message"], label[for="visitor-name"] {
     display: block;
     margin-bottom: 6px;
     font-weight: bold;
@@ -257,15 +260,43 @@ label[for="message"] {
     gap: 10px;
 }
 
-#message {
+#message, #visitor-name {
     flex: 1 1 12em;
     min-width: 0;
     max-width: 100%;
 }
 
+#visitor-name {
+    border-width: 2px;
+}
+
+.alert-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    cursor: pointer;
+}
+
+.alert-option input {
+    width: 18px;
+    height: 18px;
+}
+
+#greeting-status {
+    overflow-wrap: anywhere;
+    font-weight: bold;
+}
+
+#greeting-status:empty {
+    margin: 0;
+}
+
 /* The theme button toggles this class on the page's body. */
 body.dark {
     color-scheme: dark;
+    --field-error: #ffa38b;
+    --field-success: #8fdfad;
     background-color: #0e1925;
     color: #f2eadc;
 }
