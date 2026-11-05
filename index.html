@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stephan Kozak - The Reality Architect</title>
+    <link rel="icon" href="images/reality-architect.png">
     <!-- Both pages share this external stylesheet. -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,6 +18,7 @@
             <nav aria-label="Main navigation">
                 <a class="current-page" href="index.html" aria-current="page">Home</a>
                 <a href="Classified.html">Classified</a>
+                <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
             </nav>
         </div>
     </header>
@@ -29,6 +31,10 @@
                     <h2>About Me</h2>
                     <p>I am a creative director, visual effects supervisor, and digital media master's student.
                     I bring images to life. I try to bring what's in your mind alive.</p>
+                    <div class="fact-reveal">
+                        <button id="fact-btn" type="button">Reveal a random fact</button>
+                        <p id="fact" aria-live="polite">One small idea usually turns into three new projects.</p>
+                    </div>
                 </div>
                 <img class="feature-image" src="images/space-monkey.jpg" width="1000" height="563"
                      alt="A hand-drawn monkey launching into space and transforming into a human astronaut.">
@@ -42,6 +48,13 @@
                 <p>I started with drawing and animation, then moved into visual effects
                 and academic research. One day, I asked, "What if a painting could move in the real world?"
                 Now I keep inventing projects that refuse to stay inside their frames.</p>
+                <form>
+                    <label for="message">What would you bring to life?</label>
+                    <div class="message-row">
+                        <input id="message" type="text" placeholder="A painting that winks">
+                        <button id="notify-btn" type="submit">Preview alert</button>
+                    </div>
+                </form>
             </section>
 
             <section class="info-card">
@@ -59,9 +72,10 @@
 
     <footer>
         <div class="container footer-layout">
-            <p>Stephan Kozak - DG8002 Week 7</p>
+            <p>Stephan Kozak - DG8002 JavaScript Lab</p>
             <p>A slightly exaggerated biography.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

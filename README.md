@@ -2,7 +2,7 @@
 
 DG8002 Activity 7 - TAG-Me Extreme Makeover - Stephan Kozak
 
-A two-page website using HTML and one external CSS file.
+A two-page website using HTML, a shared stylesheet, and a shared JavaScript file.
 Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
 
 - Website: https://kozanimator.github.io/guide-to-me/
@@ -14,6 +14,7 @@ Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
 - `index.html`: introduction, origin story, skills, and Unreal Engine link.
 - `Classified.html`: fun facts, survival guide, weaknesses, and ambitions.
 - `style.css`: shared appearance and layout for both pages.
+- `script.js`: switches the theme on both pages. On Home, it previews a visitor's story idea in an alert and reveals a random fact about me.
 - `images/space-monkey.jpg`: homepage illustration.
 - `images/foreverstar-comic.jpg`: Classified illustration.
 

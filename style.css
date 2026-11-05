@@ -196,6 +196,109 @@ footer p {
     margin: 0;
 }
 
+/* JavaScript lab controls share the site's navy and gold palette. */
+button, input {
+    min-height: 44px;
+    padding: 8px 14px;
+    font: inherit;
+    border: 1px solid #667888;
+    border-radius: 6px;
+}
+
+button {
+    background-color: #172d45;
+    color: #fffaf0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #304b65;
+}
+
+nav button {
+    border-color: #9aabb8;
+}
+
+nav button[aria-pressed="true"] {
+    color: #f1cb80;
+    border-color: #f1cb80;
+}
+
+button:focus-visible, input:focus-visible {
+    outline: 3px solid #a94b2e;
+    outline-offset: 3px;
+}
+
+nav button:focus-visible {
+    outline-color: #f1cb80;
+}
+
+.fact-reveal {
+    border-top: 1px solid #cfc5b1;
+    padding-top: 16px;
+}
+
+#fact {
+    min-height: 3.3em;
+    margin: 10px 0 0;
+    font-family: Georgia, serif;
+}
+
+label[for="message"] {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.message-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#message {
+    flex: 1 1 12em;
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* The theme button toggles this class on the page's body. */
+body.dark {
+    color-scheme: dark;
+    background-color: #0e1925;
+    color: #f2eadc;
+}
+
+.dark .feature-section, .dark .info-card {
+    background-color: #1c3043;
+    border-color: #52677a;
+}
+
+.dark .info-card {
+    border-top-color: #e49974;
+}
+
+.dark h2, .dark main a:link {
+    color: #f1cb80;
+}
+
+.dark main a:visited {
+    color: #ddbbef;
+}
+
+.dark main a:hover {
+    color: #fffaf0;
+}
+
+.dark footer {
+    color: #c8d1d7;
+}
+
+.dark button:focus-visible, .dark input:focus-visible, .dark a:focus-visible {
+    outline-color: #f1cb80;
+}
+
 /* 6. RESPONSIVE DESIGN: layout on phones and tablets. */
 @media (max-width: 700px) {
     header {
