@@ -16,9 +16,26 @@ function calculate_total(prices) {
     return total;
 }
 
-add_item_to_order(menu["Burger"]);
-add_item_to_order(menu["Fries"]);
-add_item_to_order(menu["Drink"]);
+const orderedItems = ["Burger", "Fries", "Drink"];
+let receipt = "";
+
+for (const item of orderedItems) {
+    const price = menu[item];
+    add_item_to_order(price);
+    receipt += `<p>${item}: $${price}</p>`;
+}
+
+console.log(order);
+const totalPrice = calculate_total(order);
+console.log("Total: " + totalPrice);
+
+const itemList = document.getElementById("item_list");
+const totalCost = document.getElementById("total");
+
+if (itemList && totalCost) {
+    itemList.innerHTML = receipt;
+    totalCost.textContent = "Total: $" + totalPrice;
+}
 
 console.log(order);
 console.log("Total: " + calculate_total(order));
