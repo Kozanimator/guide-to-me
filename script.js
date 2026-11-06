@@ -34,7 +34,6 @@ themeButton.addEventListener("click", function () {
 const greetingForm = document.querySelector("#greeting-form");
 if (greetingForm) {
     const nameInput = document.querySelector("#visitor-name");
-    const extraAlerts = document.querySelector("#extra-alerts");
     const statusText = document.querySelector("#greeting-status");
     const greetingPopup = document.querySelector("#greeting-popup");
     const popupCount = document.querySelector("#greeting-popup-count");
@@ -104,14 +103,10 @@ if (greetingForm) {
         statusText.textContent = "";
         // The first click closes the native alert required by the assignment.
         window.alert(`Welcome, ${name}! You’re cleared to enter Stephan’s workshop.`);
-        if (extraAlerts.checked) {
-            greetingLimit = Math.floor(Math.random() * 6) + 5;
-            greetingNumber = 2;
-            greetingPopup.showModal();
-            showGreeting();
-        } else {
-            finishGreeting();
-        }
+        greetingLimit = Math.floor(Math.random() * 6) + 5;
+        greetingNumber = 2;
+        greetingPopup.showModal();
+        showGreeting();
     });
 
     closeButton.addEventListener("click", closeGreeting);

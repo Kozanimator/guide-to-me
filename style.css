@@ -270,19 +270,6 @@ label[for="message"], label[for="visitor-name"] {
     border-width: 2px;
 }
 
-.alert-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 44px;
-    cursor: pointer;
-}
-
-.alert-option input {
-    width: 18px;
-    height: 18px;
-}
-
 #greeting-status {
     overflow-wrap: anywhere;
     font-weight: bold;
