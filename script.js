@@ -52,7 +52,7 @@ if (greetingForm) {
     ];
     let visitorName = "";
     let greetingNumber = 1;
-    let greetingLimit = 1;
+    const greetingLimit = 10;
 
     function moveGreeting() {
         // Alternate between high and low positions, with a random horizontal position.
@@ -102,8 +102,7 @@ if (greetingForm) {
         nameInput.removeAttribute("aria-invalid");
         statusText.textContent = "";
         // The first click closes the native alert required by the assignment.
-        window.alert(`Welcome, ${name}! You’re cleared to enter Stephan’s workshop.`);
-        greetingLimit = Math.floor(Math.random() * 6) + 5;
+        window.alert(`Greeting 1 of ${greetingLimit}\n\nWelcome, ${name}! You’re cleared to enter Stephan’s workshop.`);
         greetingNumber = 2;
         greetingPopup.showModal();
         showGreeting();
