@@ -66,7 +66,7 @@ if (greetingForm) {
     });
 }
 
-// Home also has a place to preview a story idea.
+// Home gives a joking response to the visitor's story idea.
 const notifyButton = document.querySelector("#notify-btn");
 if (notifyButton) {
     const input = document.querySelector("#message");
@@ -78,7 +78,12 @@ if (notifyButton) {
             window.alert("Type a story idea first.");
             input.focus();
         } else {
-            window.alert(message);
+            const replies = [
+                `Nope. “${message}” is too scary. I enjoy sleeping.`,
+                `Nope. “${message}” is a terrible idea. Naturally, I’ve already started sketching it.`
+            ];
+            const replyIndex = Math.floor(Math.random() * replies.length);
+            window.alert(replies[replyIndex]);
         }
     });
 }
