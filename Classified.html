@@ -38,7 +38,7 @@
                         </div>
                         <label class="alert-option">
                             <input id="extra-alerts" type="checkbox" checked>
-                            Make me click OK three times
+                            Make me chase 5–10 greetings
                         </label>
                         <p id="greeting-status" role="status"></p>
                     </form>
@@ -96,6 +96,15 @@
             <p>Classification: not very secret.</p>
         </div>
     </footer>
+    <dialog id="greeting-popup" class="greeting-popup"
+            aria-labelledby="greeting-popup-title" aria-describedby="greeting-popup-message">
+        <h2 id="greeting-popup-title">One more thing…</h2>
+        <div aria-live="polite" aria-atomic="true">
+            <p id="greeting-popup-count" class="popup-count"></p>
+            <p id="greeting-popup-message"></p>
+        </div>
+        <button id="close-greeting" type="button" autofocus>Close greeting</button>
+    </dialog>
     <script src="script.js"></script>
 </body>
 </html>

@@ -36,6 +36,55 @@ if (greetingForm) {
     const nameInput = document.querySelector("#visitor-name");
     const extraAlerts = document.querySelector("#extra-alerts");
     const statusText = document.querySelector("#greeting-status");
+    const greetingPopup = document.querySelector("#greeting-popup");
+    const popupCount = document.querySelector("#greeting-popup-count");
+    const popupMessage = document.querySelector("#greeting-popup-message");
+    const closeButton = document.querySelector("#close-greeting");
+    const extraGreetings = [
+        "welcome again. That first welcome was just a rehearsal.",
+        "please close this one with a little more enthusiasm.",
+        "the director wants another take.",
+        "your click has been forwarded to the Click Department.",
+        "the Click Department needs one more click.",
+        "we moved the button. Creative decision.",
+        "this welcome now has a sequel.",
+        "the sequel has been renewed for another season.",
+        "this is the FINAL_final_REALLY_final welcome."
+    ];
+    let visitorName = "";
+    let greetingNumber = 1;
+    let greetingLimit = 1;
+
+    function moveGreeting() {
+        // Alternate between high and low positions, with a random horizontal position.
+        const freeWidth = Math.max(0, document.documentElement.clientWidth - greetingPopup.offsetWidth - 32);
+        const freeHeight = Math.max(0, window.innerHeight - greetingPopup.offsetHeight - 32);
+        const verticalPosition = greetingNumber % 2 === 0 ? Math.random() * 0.3 : 0.7 + Math.random() * 0.3;
+        greetingPopup.style.left = 16 + Math.floor(Math.random() * freeWidth) + "px";
+        greetingPopup.style.top = 16 + Math.floor(verticalPosition * freeHeight) + "px";
+    }
+
+    function showGreeting() {
+        popupCount.textContent = `Greeting ${greetingNumber} of ${greetingLimit}`;
+        popupMessage.textContent = `${visitorName}, ${extraGreetings[greetingNumber - 2]}`;
+        moveGreeting();
+    }
+
+    function finishGreeting() {
+        nameInput.style.borderColor = "var(--field-success)";
+        nameInput.removeAttribute("aria-invalid");
+        statusText.textContent = `Clearance granted, ${visitorName}.`;
+    }
+
+    function closeGreeting() {
+        if (greetingNumber === greetingLimit) {
+            greetingPopup.close();
+            finishGreeting();
+            return;
+        }
+        greetingNumber += 1;
+        showGreeting();
+    }
 
     greetingForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -49,14 +98,31 @@ if (greetingForm) {
             return;
         }
 
+        visitorName = name;
+        nameInput.style.removeProperty("border-color");
+        nameInput.removeAttribute("aria-invalid");
+        statusText.textContent = "";
+        // The first click closes the native alert required by the assignment.
         window.alert(`Welcome, ${name}! You’re cleared to enter Stephan’s workshop.`);
         if (extraAlerts.checked) {
-            window.alert(`Take two, ${name}. That first OK was a rehearsal. Click OK again, with feeling.`);
-            window.alert(`One more take, ${name}. The director wants the exact same OK, but completely different.`);
+            greetingLimit = Math.floor(Math.random() * 6) + 5;
+            greetingNumber = 2;
+            greetingPopup.showModal();
+            showGreeting();
+        } else {
+            finishGreeting();
         }
-        nameInput.style.borderColor = "var(--field-success)";
-        nameInput.removeAttribute("aria-invalid");
-        statusText.textContent = `Clearance granted, ${name}.`;
+    });
+
+    closeButton.addEventListener("click", closeGreeting);
+    greetingPopup.addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeGreeting();
+    });
+    window.addEventListener("resize", function () {
+        if (greetingPopup.open) {
+            moveGreeting();
+        }
     });
 
     nameInput.addEventListener("input", function () {

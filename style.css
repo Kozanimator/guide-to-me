@@ -292,6 +292,37 @@ label[for="message"], label[for="visitor-name"] {
     margin: 0;
 }
 
+.greeting-popup {
+    position: fixed;
+    inset: auto;
+    top: 16px;
+    left: 16px;
+    margin: 0;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 32px);
+    padding: 22px;
+    overflow: auto;
+    color: #243446;
+    background-color: #fffdf7;
+    border: 2px solid #f1cb80;
+    border-radius: 10px;
+    box-shadow: 0 16px 60px #0006;
+}
+
+.greeting-popup::backdrop {
+    background-color: #07152366;
+}
+
+.popup-count {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+#greeting-popup-message {
+    overflow-wrap: anywhere;
+}
+
 /* The theme button toggles this class on the page's body. */
 body.dark {
     color-scheme: dark;
@@ -308,6 +339,11 @@ body.dark {
 
 .dark .info-card {
     border-top-color: #e49974;
+}
+
+.dark .greeting-popup {
+    background-color: #1c3043;
+    color: #f2eadc;
 }
 
 .dark h2, .dark main a:link {
