@@ -1,6 +1,6 @@
 console.log("TAG-ME script loaded.");
 
-// 1. Both pages use the same theme button. Keep the choice as the visitor navigates.
+// 1. Both pages use the same theme button. Keep the visitor's choice as they navigate.
 const themeButton = document.querySelector("#theme-toggle");
 
 function restoreTheme() {
@@ -9,7 +9,7 @@ function restoreTheme() {
         document.body.classList.toggle("dark", isDark);
         themeButton.setAttribute("aria-pressed", String(isDark));
     } catch {
-        // The current page can still switch themes when storage is unavailable.
+        // The current page can switch themes when storage is unavailable.
     }
 }
 
@@ -26,7 +26,7 @@ themeButton.addEventListener("click", function () {
     try {
         sessionStorage.setItem("guide-to-me-theme", darkMode ? "dark" : "light");
     } catch {
-        // The button still changes this page when storage is unavailable.
+        // The button changes this page when storage is unavailable.
     }
 });
 
@@ -40,15 +40,15 @@ if (greetingForm) {
     const popupMessage = document.querySelector("#greeting-popup-message");
     const closeButton = document.querySelector("#close-greeting");
     const extraGreetings = [
-        "welcome again. That first welcome was just a rehearsal.",
-        "please close this one with a little more enthusiasm.",
-        "the director wants another take.",
+        "Welcome again. That first welcome was just a rehearsal.",
+        "Please close this one with a little more enthusiasm.",
+        "The director wants you to do it again.",
         "your click has been forwarded to the Click Department.",
-        "the Click Department needs one more click.",
+        "The Click Department needs a good click this time.",
         "we moved the button. Creative decision.",
         "this welcome now has a sequel.",
         "the sequel has been renewed for another season.",
-        "this is the FINAL_final_REALLY_final welcome."
+        "This is the Final welcome, promise."
     ];
     let visitorName = "";
     let greetingNumber = 1;
@@ -139,8 +139,8 @@ if (notifyButton) {
             input.focus();
         } else {
             const replies = [
-                `Nope. “${message}” is too scary. I enjoy sleeping.`,
-                `Nope. “${message}” is a terrible idea. Naturally, I’ve already started sketching it.`
+                `Nope. “${message}” is too scary.`,
+                `Nope. “${message}” is a terrible idea.`
             ];
             const replyIndex = Math.floor(Math.random() * replies.length);
             window.alert(replies[replyIndex]);
