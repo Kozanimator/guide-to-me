@@ -57,7 +57,7 @@ li {
 }
 
 /* 3. CLASS: reusable styles across both pages.
-   A flexible width and auto margins keep the content centred. */
+   A flexible width and auto margins keep the content centered. */
 .container {
     width: 92%;
     max-width: 1120px;
@@ -353,7 +353,7 @@ body.dark {
     outline-color: #f1cb80;
 }
 
-/* 6. RESPONSIVE DESIGN: layout on phones and tablets. */
+/* 6. RESPONSIVE DESIGN: layout from phones to tablets. */
 @media (max-width: 700px) {
     header {
         padding: 28px 0;
