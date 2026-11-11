@@ -1,9 +1,9 @@
 # Totally Accurate Guide to Me
 
-DG8002 Activity 7 - TAG-Me Extreme Makeover - Stephan Kozak
+DG8002 Activity 8 - TAG-Me Interactive Edition - Stephan Kozak
 
 A two-page website using HTML, a shared stylesheet, and a shared JavaScript file.
-Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
+Week 8 adds Eternal JavaScript, Light/Dark Mode, Random Fact Generator, Personalized Greeting, DOM Manipulation, and Events
 
 - Website: https://kozanimator.github.io/guide-to-me/
 - Classified page: https://kozanimator.github.io/guide-to-me/Classified.html
@@ -17,15 +17,3 @@ Week 7 adds colours, typography, spacing, borders, Flexbox, and a mobile layout.
 - `script.js`: switches the theme and reveals random facts on both pages. Classified also greets visitors by name, with optional extra alerts. Home lets visitors preview a story idea.
 - `images/space-monkey.jpg`: homepage illustration.
 - `images/foreverstar-comic.jpg`: Classified illustration.
-
-## Week 7
-
-| Requirement | Where to find it |
-| --- | --- |
-| External stylesheet | Both pages link to `style.css` inside `<head>`. |
-| Visual identity | Navy, cream, gold, and rust colours; Georgia headings and Arial body text; consistent navigation and link states. |
-| Element, class, and ID selectors | `body` and `h2`; `#main-title`; reusable `.container` and `.info-card` classes each style multiple elements. |
-| Box model | `box-sizing: border-box`; margins, padding, borders, rounded corners, width, and max-width. |
-| Flexbox | `.header-layout`, `nav`, `.intro-layout`, `.content-row`, and `.footer-layout`. |
-| Responsive design | Flexible container/image widths and `@media (max-width: 700px)` stack content for small screens. |
-| GitHub deployment | Updated in the existing `Kozanimator/guide-to-me` repository and published at the existing GitHub Pages URL. |
