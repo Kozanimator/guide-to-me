@@ -19,7 +19,7 @@ Week 8 adds External JavaScript, Light/Dark Mode, Random Fact Generator, Persona
 - `images/space-monkey.jpg`: homepage illustration.
 - `images/foreverstar-comic.jpg`: Classified illustration.
 
-## Week 9 game
+## Week 9 mini-game
 
 Open [Shield Pong](https://kozanimator.github.io/guide-to-me/pong.html) and click **Start game**. Move Superman’s shield with the up and down arrow keys, a mouse, or a finger. Returning the Kryptonite scores one point. After a miss, choose **Play again**.
 
