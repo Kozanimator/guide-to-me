@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shield Pong | Stephan Kozak</title>
+    <link rel="icon" href="images/reality-architect.png">
+    <link rel="stylesheet" href="style.css?v=10-greetings">
+    <link rel="stylesheet" href="pong.css">
+    <script src="pong.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container header-layout">
+            <a class="site-name" href="index.html">The Reality Architect</a>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="Classified.html">Classified</a>
+                <a class="current-page" href="pong.html" aria-current="page">Shield Pong</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container game">
+        <h1>Shield Pong</h1>
+        <p>Help Superman protect Metropolis. Bounce the Kryptonite back with his shield to earn a point.</p>
+        <section class="arcade" aria-label="Shield Pong game">
+            <div class="scoreboard">
+                <span id="status" role="status">Ready to play</span>
+                <span>Score <output id="score">0</output></span>
+            </div>
+            <div id="court" tabindex="0" role="region" aria-label="Pong court" aria-describedby="controls">
+                <div id="paddle" aria-hidden="true"></div>
+                <div id="ball" aria-hidden="true"></div>
+            </div>
+            <div class="controls">
+                <button id="start" type="button">Start game</button>
+                <p id="controls">Use <kbd>↑</kbd> <kbd>↓</kbd>, move your mouse, or slide your finger to move the shield.</p>
+            </div>
+        </section>
+        <noscript><p>Turn on JavaScript to play Shield Pong.</p></noscript>
+    </main>
+</body>
+</html>

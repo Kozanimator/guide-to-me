@@ -1,0 +1,45 @@
+/* The game shares the rest of its colours, buttons, and navigation with the guide. */
+header { padding: 17px 0; }
+.site-name:link, .site-name:visited { color: #fffaf0; font: bold 23px Georgia, serif; text-decoration: none; }
+.game { max-width: 800px; margin: 32px auto; }
+.game h1 { margin: 0 0 8px; color: #172d45; font-size: 40px; }
+.arcade { overflow: hidden; border: 3px solid #172d45; border-radius: 6px; background: #fffdf7; }
+
+.scoreboard, .controls { display: flex; align-items: center; gap: 16px; padding: 12px 18px; }
+.scoreboard { justify-content: space-between; background: #172d45; color: #fffaf0; font: bold 17px monospace; }
+#score { margin-left: 5px; color: #f1cb80; font-size: 22px; }
+.controls p { margin: 0; font-size: 15px; line-height: 1.5; }
+.controls button { flex-shrink: 0; }
+kbd { padding: 1px 5px; border: 1px solid #a9a599; border-radius: 3px; }
+
+#court {
+    position: relative;
+    height: clamp(200px, 45vw, 350px);
+    overflow: hidden;
+    touch-action: none;
+    background: linear-gradient(#152947d9, #152947c9), url("images/metropolis.png") center / cover;
+    image-rendering: pixelated;
+}
+#court:focus-visible { outline: 3px solid #f1cb80; outline-offset: -3px; }
+#court::before { content: ""; position: absolute; left: 50%; height: 100%; border-left: 2px dashed #c4d2d05c; }
+
+/* Superman flies just behind the red and gold paddle. */
+#paddle { position: absolute; left: 2%; width: 11%; display: flex; align-items: center; }
+#paddle::before { content: ""; flex: 1; aspect-ratio: 80 / 36; background: url("images/superman.png") left / 200% 100%; }
+#paddle::after { content: ""; height: 100%; width: 18%; min-width: 7px; border-radius: 3px; background: #ffcf63; border-left: 3px solid #e25350; }
+#ball {
+    position: absolute;
+    width: clamp(11px, 2.1%, 16px);
+    aspect-ratio: 1;
+    background: #b7ff7e;
+    border: 2px solid #e6ffc4;
+    border-right-color: #61b874;
+    border-bottom-color: #61b874;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@media (max-width: 700px) {
+    .header-layout { gap: 12px; }
+    .game { margin-block: 20px; }
+    .controls { flex-wrap: wrap; gap: 8px 16px; }
+}
