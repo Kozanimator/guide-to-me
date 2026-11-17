@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17283f">
+    <title>Superman: Metropolis Run | Stephan Kozak</title>
+    <link rel="icon" href="images/reality-architect.png">
+    <link rel="stylesheet" href="flight.css">
+    <script src="flight.js" defer></script>
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead-inner">
+            <a class="site-name" href="index.html"><span class="bolt" aria-hidden="true"></span>The Reality Architect</a>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="Classified.html">Classified</a>
+                <a href="flight.html" aria-current="page">Flight Arcade</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cabinet" aria-label="Superman: Metropolis Run arcade game">
+            <div class="hud">
+                <div class="flight-status" id="status" role="status"><span class="lamp"></span><span id="status-text">Ready</span></div>
+                <dl class="scores">
+                    <div><dt>Score</dt><dd id="score">00</dd></div>
+                    <div><dt>Best</dt><dd id="best">00</dd></div>
+                </dl>
+                <button id="pause" class="pause-button" type="button" disabled>Pause</button>
+            </div>
+
+            <div class="field" id="field" tabindex="0" role="region" aria-label="Flight area" aria-describedby="flight-controls" data-mode="ready">
+                <div class="rooftops" id="rooftops" aria-hidden="true"></div>
+                <div class="world" id="world" aria-hidden="true">
+                    <div id="gates"></div>
+                    <div class="hero" id="hero"><div class="hero-sprite"></div></div>
+                </div>
+                <div class="scrim" aria-hidden="true"></div>
+                <div class="panel" id="panel">
+                    <h1 class="game-title" id="title"><span class="hero-name">Superman</span><span class="run-name">Metropolis Run</span></h1>
+                    <h2 class="message-title" id="message-title" hidden></h2>
+                    <p id="message">Fly over Metropolis. Thread the gaps in the Kryptonite.</p>
+                    <button id="action" class="action" type="button"><span class="play-icon" aria-hidden="true"></span><span id="action-text">Start flight</span></button>
+                </div>
+            </div>
+
+            <div class="instructions" id="flight-controls">
+                <div><h2>Flight controls</h2><p><kbd>Space</kbd> / <kbd>↑</kbd> or <strong>tap</strong> to climb. Release to glide.</p></div>
+                <div class="pause-tip"><kbd>P</kbd><span>Pause / resume</span></div>
+                <div class="gate-tip"><span class="crystal-icon" aria-hidden="true"></span><span>1 gate = 1 point</span></div>
+            </div>
+        </section>
+        <noscript><p>Turn on JavaScript to play Metropolis Run.</p></noscript>
+    </main>
+    <footer><span>Stephan Kozak</span><span>DG8002 · Flight Arcade</span></footer>
+</body>
+</html>
