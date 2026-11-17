@@ -50,6 +50,7 @@ function moveBall() {
             scoreText.textContent = score;
         } else {
             clearInterval(timer);
+            timer = null;
             statusText.textContent = "Missed! Game over.";
             startButton.textContent = "Play again";
             if (document.activeElement === court) startButton.focus();
@@ -67,12 +68,18 @@ startButton.addEventListener("click", function () {
     timer = setInterval(moveBall, 20);
 });
 
-court.addEventListener("keydown", function (event) {
+function moveWithArrows(event) {
     if (event.key === "ArrowUp" || event.key === "ArrowDown") {
         event.preventDefault();
         if (event.key === "ArrowUp") movePaddle(paddleTop - 7);
         else movePaddle(paddleTop + 7);
     }
+}
+
+court.addEventListener("keydown", moveWithArrows);
+// During a round the arrows still move the shield after switching themes.
+document.getElementById("theme-toggle").addEventListener("keydown", function (event) {
+    if (timer) moveWithArrows(event);
 });
 
 function followPointer(event) {

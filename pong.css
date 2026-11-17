@@ -17,7 +17,8 @@ kbd { padding: 1px 5px; border: 1px solid #a9a599; border-radius: 3px; }
     height: clamp(200px, 45vw, 350px);
     overflow: hidden;
     touch-action: none;
-    background: linear-gradient(#152947d9, #152947c9), url("images/metropolis.png") center / cover;
+    --sky-tint: linear-gradient(#152947d9, #152947c9);
+    background: var(--sky-tint), url("images/metropolis.png") center / cover;
     image-rendering: pixelated;
 }
 #court:focus-visible { outline: 3px solid #f1cb80; outline-offset: -3px; }
@@ -37,6 +38,15 @@ kbd { padding: 1px 5px; border: 1px solid #a9a599; border-radius: 3px; }
     border-bottom-color: #61b874;
     transform: translate(-50%, -50%) rotate(45deg);
 }
+
+/* The guide's theme button toggles the dark class on the body. */
+.dark .game h1 { color: #f1cb80; }
+.dark .arcade { background: #1c3043; border-color: #52677a; }
+.dark .scoreboard { background: #101f2e; }
+.dark #court { --sky-tint: linear-gradient(#061125db, #061225d9); }
+.dark kbd { background: #112233; border-color: #7d92a5; }
+.dark .controls button { background: #f1cb80; color: #172d45; border-color: #f1cb80; }
+.dark .controls button:hover { background: #ffe3aa; }
 
 @media (max-width: 700px) {
     .header-layout { gap: 12px; }
