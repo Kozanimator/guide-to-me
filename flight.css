@@ -133,10 +133,9 @@ main { margin-block: clamp(26px, 5.2vw, 76px) 20px; }
 .hero-name, .message-title {
     display: block;
     text-transform: uppercase;
-    letter-spacing: -.06em;
-    font: italic 1000 clamp(3.5rem, 8vw, 6.65rem)/.96 Impact, "Arial Black", system-ui, sans-serif;
-    letter-spacing: -.065em;
-    text-shadow: 2px 2px 0 var(--red), 4px 4px 0 var(--red), 5px 5px 0 #522f3e;
+    font: 900 clamp(3.5rem, 8vw, 6.65rem)/.96 "Arial Black", "Trebuchet MS", Arial, sans-serif;
+    letter-spacing: -.025em;
+    text-shadow: 2px 2px 0 var(--red), 3px 4px 0 #672c3a;
 }
 .run-name { display: block; margin: 10px 0 0 4px; color: #ffdf8b; text-transform: uppercase; font: 900 clamp(.95rem, 2vw, 1.45rem)/1.15 "Trebuchet MS", system-ui, sans-serif; letter-spacing: .28em; }
 .message-title { max-width: 100%; font-size: clamp(2.75rem, 6.8vw, 5.6rem); }
