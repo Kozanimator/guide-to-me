@@ -1,0 +1,83 @@
+/* Superhero Files uses the guide's existing navy, cream, and gold palette. */
+.hero-page { max-width: 1000px; }
+.hero-controls h2 { margin-bottom: 10px; }
+.hero-controls label { display: block; margin-bottom: 6px; font-weight: bold; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.hero-select-wrap { position: relative; flex: 1 1 230px; }
+.hero-select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+#hero-select {
+    appearance: none;
+    width: 100%;
+    min-height: 46px;
+    padding: 8px 42px 8px 14px;
+    font: inherit;
+    color: inherit;
+    background-color: #fffdf7;
+    border: 1px solid #667888;
+    border-radius: 6px;
+}
+#hero-select:focus-visible { outline: 3px solid #a94b2e; outline-offset: 3px; }
+.secondary-button { background: transparent; color: #172d45; }
+.secondary-button:hover { background: #eee5d1; }
+.hero-actions button:disabled, #hero-select:disabled { opacity: 0.65; cursor: wait; }
+#hero-status { margin: 16px 0 0; min-height: 1.65em; }
+#hero-status.hero-error { color: var(--field-error, #a33428); font-weight: bold; }
+.hero-card { display: grid; grid-template-columns: minmax(180px, 280px) 1fr; gap: 32px; margin-bottom: 24px; }
+/* Grid display must not override the HTML hidden attribute. */
+.hero-page [hidden] { display: none; }
+.hero-portrait {
+    align-self: start;
+    aspect-ratio: 2 / 3;
+    background: #172d45;
+    color: #fffaf0;
+    border: 1px solid #667888;
+    border-radius: 6px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+#hero-image { width: 100%; height: auto; display: block; }
+#image-fallback { padding: 24px; text-align: center; margin: 0; }
+.hero-details { min-width: 0; }
+.hero-publisher { color: #8d3f29; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+#hero-name { font-size: clamp(32px, 5vw, 44px); margin-bottom: 18px; overflow-wrap: anywhere; }
+.hero-biography { margin: 0 0 22px; }
+.hero-biography div { margin-bottom: 12px; }
+.hero-biography dt { font-size: 14px; font-weight: bold; color: #495968; }
+.hero-biography dd { margin: 0; overflow-wrap: anywhere; }
+.hero-details h3 { font-size: 20px; margin: 0 0 12px; }
+.hero-stat { margin-bottom: 12px; }
+.hero-stat > div { display: flex; justify-content: space-between; gap: 12px; }
+.hero-stat meter { display: block; width: 100%; height: 16px; margin-top: 4px; }
+.hero-stat meter::-webkit-meter-bar { background: #e6dfcf; border: 0; border-radius: 4px; }
+.hero-stat meter::-webkit-meter-optimum-value { background: #ad5035; border-radius: 4px; }
+.hero-stat meter::-moz-meter-bar { background: #ad5035; }
+.hero-note, .hero-source { font-size: 14px; color: #495968; }
+.hero-note { margin: 18px 0 0; }
+.hero-source { margin-bottom: 32px; }
+.dark #hero-select { background: #112233; border-color: #8ba1b5; }
+.dark #hero-select:focus-visible { outline-color: #f1cb80; }
+.dark .secondary-button { color: #f1cb80; border-color: #9aabb8; }
+.dark .secondary-button:hover { background: #304b65; }
+.dark .hero-publisher { color: #f1cb80; }
+.dark .hero-biography dt, .dark .hero-note, .dark .hero-source { color: #c8d1d7; }
+.dark .hero-stat meter::-webkit-meter-bar { background: #0e1925; }
+.dark .hero-stat meter::-webkit-meter-optimum-value { background: #f1cb80; }
+.dark .hero-stat meter::-moz-meter-bar { background: #f1cb80; }
+@media (max-width: 600px) {
+    .hero-card { grid-template-columns: 1fr; gap: 24px; }
+    .hero-portrait { width: min(100%, 240px); justify-self: center; }
+    .hero-actions button { flex: 1; }
+    .hero-select-wrap { flex-basis: 100%; }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Files - The Reality Architect</title>
+    <meta name="description" content="Open a superhero file to discover their identity, first appearance, and power stats.">
+    <link rel="icon" href="images/reality-architect.png">
+    <link rel="stylesheet" href="style.css?v=10-greetings">
+    <link rel="stylesheet" href="heroes.css?v=1">
+    <script src="script.js?v=10-greetings" defer></script>
+    <script src="heroes.js?v=1" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container header-layout">
+            <div>
+                <p class="name">The Reality Architect</p>
+                <h1 id="main-title">Superhero Files</h1>
+                <p class="subtitle">Extraordinary people. Slightly questionable disguises.</p>
+            </div>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="Classified.html">Classified</a>
+                <a href="pong.html">Shield Pong</a>
+                <a class="current-page" href="heroes.html" aria-current="page">Superhero Files</a>
+                <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container hero-page">
+        <section class="feature-section hero-controls" aria-labelledby="hero-controls-title">
+            <h2 id="hero-controls-title">Choose your hero</h2>
+            <p>Open a file to uncover a hero's identity and compare their abilities. Feeling lucky? Let fate pick.</p>
+            <form id="hero-form">
+                <label for="hero-select">Superhero</label>
+                <div class="hero-actions">
+                    <!-- Each value is the hero's ID in the external API. -->
+                    <div class="hero-select-wrap">
+                        <select id="hero-select" name="hero">
+                            <option value="70">Batman</option>
+                            <option value="106">Black Panther</option>
+                            <option value="107">Black Widow</option>
+                            <option value="149">Captain America</option>
+                            <option value="332">Hulk</option>
+                            <option value="346">Iron Man</option>
+                            <option value="620">Spider-Man</option>
+                            <option value="644">Superman</option>
+                            <option value="659">Thor</option>
+                            <option value="720">Wonder Woman</option>
+                        </select>
+                    </div>
+                    <button id="open-hero" type="submit">Open File</button>
+                    <button id="random-hero" class="secondary-button" type="button">Surprise Me</button>
+                </div>
+            </form>
+            <p id="hero-status" role="status" aria-live="polite" aria-atomic="true">Choose a hero and open their file.</p>
+            <noscript><p>Enable JavaScript to load superhero files.</p></noscript>
+        </section>
+
+        <section id="hero-results" aria-label="Superhero file" aria-busy="false">
+            <!-- JavaScript fills these elements with the API response. -->
+            <article id="hero-card" class="info-card hero-card" aria-labelledby="hero-name" hidden>
+                <div class="hero-portrait">
+                    <img id="hero-image" width="320" height="480" alt="" hidden>
+                    <p id="image-fallback" hidden>Portrait unavailable. This hero is keeping a low profile.</p>
+                </div>
+                <div class="hero-details">
+                    <p class="hero-publisher" id="hero-publisher"></p>
+                    <h2 id="hero-name"></h2>
+                    <dl class="hero-biography">
+                        <div><dt>Real name</dt><dd id="hero-identity"></dd></div>
+                        <div><dt>First appearance</dt><dd id="hero-debut"></dd></div>
+                        <div><dt>Place of birth</dt><dd id="hero-birthplace"></dd></div>
+                    </dl>
+                    <h3>Power stats</h3>
+                    <div class="hero-stat">
+                        <div><label for="strength-meter">Strength</label><span id="strength-value"></span></div>
+                        <meter id="strength-meter" min="0" max="100" value="0">0</meter>
+                    </div>
+                    <div class="hero-stat">
+                        <div><label for="speed-meter">Speed</label><span id="speed-value"></span></div>
+                        <meter id="speed-meter" min="0" max="100" value="0">0</meter>
+                    </div>
+                    <div class="hero-stat">
+                        <div><label for="intelligence-meter">Intelligence</label><span id="intelligence-value"></span></div>
+                        <meter id="intelligence-meter" min="0" max="100" value="0">0</meter>
+                    </div>
+                    <p class="hero-note">Community ratings out of 100. Even heroes have gaps in their records.</p>
+                </div>
+            </article>
+        </section>
+
+        <p class="hero-source">Character information and portraits from the
+            <a href="https://akabab.github.io/superhero-api/api/">community Superhero API</a>.
+            Characters belong to their respective owners.
+        </p>
+    </main>
+
+    <footer>
+        <div class="container footer-layout">
+            <p>Stephan Kozak - DG8002 Connecting to the World</p>
+            <p>Clearance level: curious.</p>
+        </div>
+    </footer>
+</body>
+</html>
