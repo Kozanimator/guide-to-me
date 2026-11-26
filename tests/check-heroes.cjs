@@ -54,6 +54,10 @@ function restored(t) {
     t.elements['hero-image'].onload();
     assert.equal(t.elements['hero-image'].hidden, false);
     t.elements['hero-image'].onerror();
+    assert.match(t.elements['hero-image'].src, /cdn\.jsdelivr\.net.*70-batman\.jpg$/);
+    t.elements['hero-image'].onload();
+    assert.equal(t.elements['hero-image'].hidden, false);
+    t.elements['hero-image'].onerror();
     assert.equal(t.elements['hero-image'].hidden, true);
     assert.match(t.elements['image-fallback'].textContent, /Portrait unavailable/);
     restored(t);

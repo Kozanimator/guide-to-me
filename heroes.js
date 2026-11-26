@@ -14,6 +14,15 @@ const imageFallback = document.getElementById("image-fallback");
 // The website stays on GitHub Pages; the token stays on that server.
 const HERO_API_BASE = "https://superhero-files-api.kozak74.chatgpt.site/api/hero/";
 
+// Backup portraits are used only if the API's image host refuses a request.
+const backupPortraits = {
+    "70": "70-batman.jpg", "106": "106-black-panther.jpg",
+    "107": "107-black-widow.jpg", "149": "149-captain-america.jpg",
+    "332": "332-hulk.jpg", "346": "346-iron-man.jpg",
+    "620": "620-spider-man.jpg", "644": "644-superman.jpg",
+    "659": "659-thor.jpg", "720": "720-wonder-woman.jpg"
+};
+
 // Some records have a blank value or a dash instead of information.
 function readableText(value) {
     if (typeof value !== "string" || value.trim() === "" || value === "-" || value === "null") {
@@ -100,11 +109,17 @@ async function loadHero() {
         heroImage.hidden = true;
         imageFallback.hidden = false;
         imageFallback.textContent = "Loading portrait...";
+        const backupImage = "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/" + backupPortraits[heroSelect.value];
         heroImage.onload = function () {
             heroImage.hidden = false;
             imageFallback.hidden = true;
         };
         heroImage.onerror = function () {
+            // Try the backup once. If that also fails, show the text fallback.
+            if (heroImage.src !== backupImage) {
+                heroImage.src = backupImage;
+                return;
+            }
             heroImage.hidden = true;
             imageFallback.hidden = false;
             imageFallback.textContent = "Portrait unavailable. This hero is keeping a low profile.";
