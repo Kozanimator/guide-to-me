@@ -32,10 +32,9 @@ Open [Shield Pong](https://kozanimator.github.io/guide-to-me/pong.html) and clic
 
 Open [Superhero Files](https://kozanimator.github.io/guide-to-me/heroes.html), choose a hero, and select Open File. Surprise Me selects a different hero. Batman's file opens when the page loads.
 
-This activity uses the public [community Superhero API](https://akabab.github.io/superhero-api/api/). A request such as `https://akabab.github.io/superhero-api/api/id/70.json` returns an external JSON record. No account, API key, npm package, or local backend is needed.
+This activity uses [SuperHeroAPI](https://superheroapi.com/), the SuperHeroes service linked in the public-apis list. It requires an access token. A small server-side adapter keeps that token private; the GitHub Pages website fetches the adapter’s JSON response. The adapter runs at `https://superhero-files-api.kozak74.chatgpt.site`; see `api/README.md` for details.
 
 - `heroes.html`: hero selector, buttons, portrait, biography, and three power meters.
 - `heroes.css`: responsive layout and dark-mode styles, alongside the existing `style.css`.
 - `heroes.js`: commented JavaScript for the request, JSON processing, and DOM updates.
-Missing values display as "Not listed"; a failed portrait shows a text fallback. Some community records contain an alter ego instead of a publisher, so those entries display "Publisher not listed". Ratings come from the community dataset and are not official rankings. Character information and images belong to their respective owners.  The new page shares the existing light/dark toggle. Navigation on Home, Classified, and Shield Pong includes Superhero Files.
-
+Missing values display as "Not listed"; a failed portrait shows a text fallback. Some community records contain an alter ego instead of a publisher, so those entries display "Publisher not listed". Ratings come from the SuperHeroAPI dataset and are not official rankings. Character information and images belong to their respective owners.  The new page shares the existing light/dark toggle. Navigation on Home, Classified, and Shield Pong includes Superhero Files.
