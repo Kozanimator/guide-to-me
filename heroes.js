@@ -11,8 +11,8 @@ const heroImage = document.getElementById("hero-image");
 const imageFallback = document.getElementById("image-fallback");
 
 // This server route calls SuperHeroAPI with a private access token.
-// Its public hosting address is added before this page is published.
-const HERO_API_BASE = "/api/hero/";
+// The website stays on GitHub Pages; the token stays on that server.
+const HERO_API_BASE = "https://superhero-files-api.kozak74.chatgpt.site/api/hero/";
 
 // Some records have a blank value or a dash instead of information.
 function readableText(value) {

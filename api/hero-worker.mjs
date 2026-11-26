@@ -37,6 +37,9 @@ export default {
         if (request.method !== "GET") {
             return json({ response: "error", error: "Use GET to open a hero file." }, 405);
         }
+        if (url.pathname === "/" && !url.search) {
+            return json({ service: "Superhero Files API", website: "https://kozanimator.github.io/guide-to-me/heroes.html" });
+        }
         const match = url.pathname.match(/^\/api\/hero\/(\d+)$/);
         if (!match || !HERO_IDS.has(match[1]) || url.search) {
             return json({ response: "error", error: "Hero file not found." }, 404);
@@ -56,13 +59,16 @@ export default {
         try {
             // Only this fixed provider and the ten dropdown IDs can be requested.
             // The token stays on the server and is never sent to the browser.
-            const apiURL = "https://superheroapi.com/api/" + encodeURIComponent(env.SUPERHERO_API_TOKEN) + "/" + id;
-            const upstream = await fetch(apiURL, { signal: controller.signal, redirect: "error" });
+            // The documented /api/ address redirects to this provider endpoint.
+            const apiURL = "https://www.superheroapi.com/api.php/" + encodeURIComponent(env.SUPERHERO_API_TOKEN) + "/" + id;
+            const upstream = await fetch(apiURL, { signal: controller.signal, redirect: "manual" });
             if (!upstream.ok) {
+                console.warn("SuperHeroAPI HTTP status", upstream.status);
                 return json({ response: "error", error: "The hero service is temporarily unavailable." }, 502);
             }
             const data = await upstream.json();
             if (!data || data.response !== "success" || typeof data.name !== "string" || !data.biography || !data.powerstats) {
+                console.warn("SuperHeroAPI returned an unavailable or incomplete record");
                 return json({ response: "error", error: "The hero service could not open this file." }, 502);
             }
 
@@ -84,8 +90,9 @@ export default {
             };
             cache.set(id, { hero, expires: Date.now() + CACHE_MS });
             return json(hero, 200, CACHE_MS / 1000);
-        } catch {
+        } catch (error) {
             // Never return or log the upstream URL: it contains the access token.
+            console.warn("SuperHeroAPI request failed", error.name);
             return json({ response: "error", error: "The hero service did not respond. Please try again." }, 502);
         } finally {
             clearTimeout(timeout);

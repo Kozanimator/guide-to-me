@@ -45,7 +45,7 @@ function restored(t) {
     let url;
     let t = setup(async requested => {url = requested; return {ok:true,json:async()=>batman};});
     await t.run();
-    assert.equal(url, '/api/hero/70');
+    assert.equal(url, 'https://superhero-files-api.kozak74.chatgpt.site/api/hero/70');
     assert.equal(t.elements['hero-name'].textContent, 'Batman');
     assert.equal(t.elements['hero-identity'].textContent, 'Bruce Wayne');
     assert.equal(t.elements['strength-value'].textContent, '26 / 100');

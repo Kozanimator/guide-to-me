@@ -15,8 +15,8 @@ let calls = 0;
 try {
     globalThis.fetch = async (url, options) => {
         calls++;
-        assert.equal(url, 'https://superheroapi.com/api/test-only-placeholder/70');
-        assert.equal(options.redirect, 'error');
+        assert.equal(url, 'https://www.superheroapi.com/api.php/test-only-placeholder/70');
+        assert.equal(options.redirect, 'manual');
         return Response.json(fixture);
     };
     let response = await worker.fetch(request(), env);
@@ -48,6 +48,7 @@ try {
     console.log('PASS: supported IDs only, fixed routes, rejected query injection and methods, missing setup');
 
     for (const implementation of [
+        async () => new Response(null, {status:302,headers:{Location:'https://unrelated.example'}}),
         async () => new Response('provider unavailable', {status:500}),
         async () => Response.json({response:'error',error:env.SUPERHERO_API_TOKEN}),
         async () => new Response('not json'),

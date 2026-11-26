@@ -32,7 +32,7 @@ Open [Shield Pong](https://kozanimator.github.io/guide-to-me/pong.html) and clic
 
 Open [Superhero Files](https://kozanimator.github.io/guide-to-me/heroes.html), choose a hero, and select Open File. Surprise Me selects a different hero. Batman's file opens when the page loads.
 
-This activity uses [SuperHeroAPI](https://superheroapi.com/), the SuperHeroes service linked in the public-apis list. It requires an access token. A small server-side adapter keeps that token private; the GitHub Pages website fetches the adapter’s JSON response. See `api/README.md` for setup. This migration is a draft until authorization, hosting, and live testing are complete.
+This activity uses [SuperHeroAPI](https://superheroapi.com/), the SuperHeroes service linked in the public-apis list. It requires an access token. A small server-side adapter keeps that token private; the GitHub Pages website fetches the adapter’s JSON response. The adapter runs at `https://superhero-files-api.kozak74.chatgpt.site`; see `api/README.md` for details.
 
 - `heroes.html`: hero selector, buttons, portrait, biography, and three power meters.
 - `heroes.css`: responsive layout and dark-mode styles, alongside the existing `style.css`.
