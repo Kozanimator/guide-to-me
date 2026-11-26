@@ -48,7 +48,6 @@
     place-items: center;
 }
 #hero-image { width: 100%; height: auto; display: block; }
-#hero-image[hidden] { display: none; }
 #image-fallback { padding: 24px; text-align: center; margin: 0; }
 .hero-details { min-width: 0; }
 .hero-publisher { color: #8d3f29; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
@@ -82,4 +81,3 @@
     .hero-actions button { flex: 1; }
     .hero-select-wrap { flex-basis: 100%; }
 }
-

@@ -10,22 +10,9 @@ const heroCard = document.getElementById("hero-card");
 const heroImage = document.getElementById("hero-image");
 const imageFallback = document.getElementById("image-fallback");
 
-// This server route calls SuperHeroAPI with a private access token.
-// The website stays on GitHub Pages; the token stays on that server.
-const HERO_API_BASE = "https://superhero-files-api.kozak74.chatgpt.site/api/hero/";
-
-// Backup portraits are used only if the API's image host refuses a request.
-const backupPortraits = {
-    "70": "70-batman.jpg", "106": "106-black-panther.jpg",
-    "107": "107-black-widow.jpg", "149": "149-captain-america.jpg",
-    "332": "332-hulk.jpg", "346": "346-iron-man.jpg",
-    "620": "620-spider-man.jpg", "644": "644-superman.jpg",
-    "659": "659-thor.jpg", "720": "720-wonder-woman.jpg"
-};
-
 // Some records have a blank value or a dash instead of information.
 function readableText(value) {
-    if (typeof value !== "string" || value.trim() === "" || value === "-" || value === "null") {
+    if (typeof value !== "string" || value.trim() === "" || value === "-") {
         return "Not listed";
     }
     return value;
@@ -35,11 +22,7 @@ function displayStat(statName, value) {
     const numberText = document.getElementById(statName + "-value");
     const meter = document.getElementById(statName + "-meter");
 
-    // SuperHeroAPI sends ratings as strings, such as "26".
-    // Convert those to numbers, but do not turn missing values into zero.
-    if (typeof value === "string" && value.trim() !== "") {
-        value = Number(value);
-    }
+    // Keep a missing rating different from a genuine rating of zero.
     if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100) {
         numberText.textContent = "Not listed";
         meter.hidden = true;
@@ -69,7 +52,7 @@ async function loadHero() {
 
     try {
         // 1. Fetch external information and wait without freezing the page.
-        const url = HERO_API_BASE + heroSelect.value;
+        const url = "https://akabab.github.io/superhero-api/api/id/" + heroSelect.value + ".json";
         const response = await fetch(url, { signal: controller.signal });
 
         // fetch() can receive a response even when its status is 404 or 500.
@@ -79,20 +62,15 @@ async function loadHero() {
 
         // 2. Parse the JSON response into a JavaScript object.
         const hero = await response.json();
-        // The API can report an error inside a successful HTTP response.
-        if (hero && hero.response === "error") {
-            throw new Error("The API could not find this hero.");
-        }
         if (!hero || typeof hero.name !== "string" || !hero.biography || !hero.powerstats) {
             throw new Error("The hero's file is incomplete.");
         }
 
         // 3. Use properties from the object to update existing DOM elements.
         document.getElementById("hero-name").textContent = hero.name;
-        // Brackets are needed because these property names contain hyphens.
-        document.getElementById("hero-identity").textContent = readableText(hero.biography["full-name"]);
-        document.getElementById("hero-debut").textContent = readableText(hero.biography["first-appearance"]);
-        document.getElementById("hero-birthplace").textContent = readableText(hero.biography["place-of-birth"]);
+        document.getElementById("hero-identity").textContent = readableText(hero.biography.fullName);
+        document.getElementById("hero-debut").textContent = readableText(hero.biography.firstAppearance);
+        document.getElementById("hero-birthplace").textContent = readableText(hero.biography.placeOfBirth);
 
         // A few API records put an alter ego in the publisher field.
         // Show "Not listed" for those entries instead of a misleading publisher.
@@ -109,24 +87,18 @@ async function loadHero() {
         heroImage.hidden = true;
         imageFallback.hidden = false;
         imageFallback.textContent = "Loading portrait...";
-        const backupImage = "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/" + backupPortraits[heroSelect.value];
         heroImage.onload = function () {
             heroImage.hidden = false;
             imageFallback.hidden = true;
         };
         heroImage.onerror = function () {
-            // Try the backup once. If that also fails, show the text fallback.
-            if (heroImage.src !== backupImage) {
-                heroImage.src = backupImage;
-                return;
-            }
             heroImage.hidden = true;
             imageFallback.hidden = false;
             imageFallback.textContent = "Portrait unavailable. This hero is keeping a low profile.";
         };
         heroImage.alt = "Portrait of " + hero.name;
-        if (hero.image && typeof hero.image.url === "string" && hero.image.url.startsWith("https://")) {
-            heroImage.src = hero.image.url;
+        if (hero.images && typeof hero.images.md === "string" && hero.images.md.startsWith("https://")) {
+            heroImage.src = hero.images.md;
         } else {
             heroImage.removeAttribute("src");
             imageFallback.textContent = "Portrait unavailable. This hero is keeping a low profile.";
